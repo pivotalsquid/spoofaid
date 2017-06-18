@@ -24,8 +24,104 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>SpoofAid</section>
-				<section>email spoof prevention</section>
+				<section>Spoof-aid</section>
+				<section>so a customer sends you a support ticket like this...</section>
+				<section data-markdown>
+				<textarea data-template>
+	STOP SENDING ME THIS GARBAGE
+
+On Mar 30, 2017 8:26 AM, "Explorɐ–thɐ–Possibilitiɐs" <tracker@pivotal.io> wrote:
+
+
+Hello,
+
+Check out (http://onnL097.getresponse.com/click.html?x=a62b&lc=4qD82&mc=JQ&s=Kpedbm&u=S5o3l&y=v&) the profiles of over 30,000 Asian babes and connect on DateOrientGirls.com (http://gOCiIFj.getresponse.com/click.html?x=a62b&lc=4qD82&mc=JQ&s=Kpedbm&u=S5o3l&y=v&) . Make these Asian women fall for your charm. It's fun, easy, and privacy guaranteed! In one second, you will have complete access to thousands of verified profiles! Just ignite your passion here... 
+
+
+To unsubscribe, please click here (http://EzxfCFu.getresponse.com/click.html?x=a62b&lc=4qDUh&mc=JQ&s=Kpedbm&u=S5o3l&y=B&)
+
+Thank you for signing up for Pivotal Tracker Hi Ilhamelame14, You've just joined a large community of people and companies who have discovered a more productive way to manage and collaborate on projects. Click the link below to activate your user account: https://www.pivotaltracker.com/signup/05fa2611fe1a7aca937c1595bf8acedd To get started, we suggest reading our Getting Started guide: https://www.pivotaltracker.com/help/articles/quick_start If you have any questions, or to get help, please visit our Help & Support page to contact us: https://www.pivotaltracker.com/help
+	</textarea>
+</section>
+				<section>
+					turns out, someone is sending spam via our signup emails
+				</section>
+				<section>
+					we're being spoofed
+				</section>
+				<section>
+					email spoofing is the creation of email messages with a forged sender address
+					</section>
+				<section>
+					how were they doing this?<br/>
+					we've setup SPIF and DKIM records
+				</section>
+				<section>
+					SPF<br/>
+					sender policy framework<br/><br/>
+					dns record that lists ip addresses and networks that are allowed to send email on behalf of that domain
+				</section>
+				<section>
+					original spf record
+					<pre>
+						<code data-trim>
+						v=spf1 ip4:65.74.177.134/32 ip4:72.249.66.132/32
+						ip4:72.46.232.147/32 ip4:74.125.148.0/22
+						ip4:174.129.206.186/32 ip4:204.16.153.246/32
+						include:sendgrid.net include:_spf.google.com
+						include:smtp.zendesk.com include:mail.zendesk.com
+						include:spf.braintreegateway.com ~all
+						</code>
+					</pre>
+				</section>
+				<section>
+					current spf record
+					<pre>
+						<code data-trim>
+							v=spf1 include:u18839.wl090.sendgrid.net<br/>
+							include:mail.zendesk.com<br/>
+							include:spf.braintreegateway.com ~all
+						</code>
+					</pre>
+				</section>
+				<section>
+					DKIM<br/>
+					domain keys identified mail<br/><br/>
+					lets a domain associate its name with an email message by affixing a digital signature
+				</section>
+				<section>
+					<pre>
+						<code data-trim>
+k=rsa; t=s; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0gDctwKgYbjkyzRusBOP5
+kqavHL7OJqQzb+I1hioBbqASlF4jpk11/Xmm6iiSYf/mFGDJPBahZ50xldjUEumAuLZkU49dp8
+vlvFrW6xW/YYr1ePz+++Z6iyQdESn6oKt55h+4CdJ2gHY4KhWqKqk1J/YA7D0T9uiWB6boY0wx
+BwIDAQAB
+						</code>
+					</pre>
+				</section>
+				<section>
+					but spf and dkim are not enough,<br/>
+					so another mechanism was developed...
+				</section>
+				<section>
+					DMARC<br/>
+					domain-based message authentication, reporting and conformance<br/><br/>
+					allows a sender's domain to indicate that their emails are protected by SPF and/or DKIM, and tells a receiver what to do if neither of those authentication methods passes
+				</section>
+				<section>
+					yet another dns record<br/>
+					<pre>
+					 <code data-trim>
+					 	v=DMARC1;p=reject;pct=100;fo=1;rua=mailto:r30dy1g8@ag.dmarcian.com;ruf=mailto:r30dy1g8@fr.dmarcian.com;
+					 </code>
+					</pre>
+				</section>
+				<section>
+				</section>
+				<section>
+				</section>
+				<section>
+				</section>
 			</div>
 		</div>
 
