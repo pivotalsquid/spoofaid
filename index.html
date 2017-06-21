@@ -26,23 +26,9 @@
 			<div class="slides">
 				<section>spoof-aid</section>
 				<section>so a customer sends you a support ticket like this...</section>
-				<section data-markdown>
-				<textarea data-template>
-	STOP SENDING ME THIS GARBAGE
-
-On Mar 30, 2017 8:26 AM, "Explorɐ–thɐ–Possibilitiɐs" <tracker@pivotal.io> wrote:
-
-
-Hello,
-
-Check out (http://onnL097.getresponse.com/click.html?x=a62b&lc=4qD82&mc=JQ&s=Kpedbm&u=S5o3l&y=v&) the profiles of over 30,000 Asian babes and connect on DateOrientGirls.com (http://gOCiIFj.getresponse.com/click.html?x=a62b&lc=4qD82&mc=JQ&s=Kpedbm&u=S5o3l&y=v&) . Make these Asian women fall for your charm. It's fun, easy, and privacy guaranteed! In one second, you will have complete access to thousands of verified profiles! Just ignite your passion here... 
-
-
-To unsubscribe, please click here (http://EzxfCFu.getresponse.com/click.html?x=a62b&lc=4qDUh&mc=JQ&s=Kpedbm&u=S5o3l&y=B&)
-
-Thank you for signing up for Pivotal Tracker Hi Ilhamelame14, You've just joined a large community of people and companies who have discovered a more productive way to manage and collaborate on projects. Click the link below to activate your user account: https://www.pivotaltracker.com/signup/05fa2611fe1a7aca937c1595bf8acedd To get started, we suggest reading our Getting Started guide: https://www.pivotaltracker.com/help/articles/quick_start If you have any questions, or to get help, please visit our Help & Support page to contact us: https://www.pivotaltracker.com/help
-	</textarea>
-</section>
+				<section>
+					<img data-src="email.png">
+				</section>
 				<section>
 					turns out, someone is sending spam via our signup emails
 				</section>
@@ -78,8 +64,8 @@ Thank you for signing up for Pivotal Tracker Hi Ilhamelame14, You've just joined
 					current spf record
 					<pre>
 						<code data-trim>
-							v=spf1 include:u18839.wl090.sendgrid.net<br/>
-							include:mail.zendesk.com<br/>
+							v=spf1 include:u18839.wl090.sendgrid.net
+							include:mail.zendesk.com
 							include:spf.braintreegateway.com ~all
 						</code>
 					</pre>
@@ -123,8 +109,11 @@ BwIDAQAB
 					alignment means that the domain in the from: field matches the domains in the spf and dkim
 				</section>
 				<section>
+					once dmarc is enabled, mail servers will generate reports detailing mail activity, allowing you to identify and track nefarious traffic
 				</section>
 				<section>
+					dmarcian.com
+					emailstuff.org
 				</section>
 			</div>
 		</div>
